@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="container"></div>
+	
+	<script>
+		 var data = [
+        { name: 'jim1', age: 19, gender: '男' },
+        { name: 'jim2', age: 9, gender: '女' },
+        { name: 'jim3', age: 29, gender: '男' },
+        { name: 'jim4', age: 39, gender: '女' },
+        { name: 'jim5', age: 49, gender: '女' }
+    ];
+    var tmp = [];
+    tmp.push('<table width="600" border = 1><tbody>');
+    tmp.push(data.map(function( v,i){
+    	return '<tr><td>' + 
+                Object.values( v ).join( '</td><td>' ) +
+                '</td></tr>';
+    }).join( '' )); 
+
+    //  tmp.push( data.map( function ( v, i ) {
+    //     return '<tr><td>' + 
+    //             Object.values( v ).join( '</td><td>' ) +
+    //             '</td></tr>';
+    // }).join( '' ) );
+
+    tmp.push('</tbody></table>')
+	document.getElementById( 'container' ).innerHTML = tmp.join( '' );
+	</script>
+</body>
+</html>

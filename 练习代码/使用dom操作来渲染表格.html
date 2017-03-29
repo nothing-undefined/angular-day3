@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div class="container"></div>
+
+	<script>
+		 var data = [
+        { name: 'jim1', age: 19, gender: '男' },
+        { name: 'jim2', age: 9, gender: '女' },
+        { name: 'jim3', age: 29, gender: '男' },
+        { name: 'jim4', age: 39, gender: '女' },
+        { name: 'jim5', age: 49, gender: '女' }
+    ];
+
+    //首先封装 创建标签的函数
+    function tag(tagName){
+    	return document.createElement( tagName );
+    }
+    //首先创建主体标签
+    var table = tag( 'table' );
+    var tbody = tag( 'tbody' );
+    table.appendChild( tbody );
+    //遍历数组 创建tr标签   之后使用for in 遍历对象
+    for (var i = 0; i <data.length ; i++) {
+    	var tr = tag( 'tr' );//创建每一个行
+    	for(var k in data[i]){
+    		var td = tag( 'td' );
+    		//将文本放到td中
+    		var txtNode = document.createTextNode(data[i][k] + '');
+    		td.appendChild(txtNode);
+    		tr.appendChild(td);
+    	}
+    	tbody.appendChild(tr);
+    };
+    table.width=600;
+    table.border = 1;
+    document.querySelector(".container").appendChild(table);
+	</script>
+</body>
+</html>
